@@ -10,4 +10,4 @@ TODO: LINK TO DEPLOYED APP, LOGIN INFO IF NEEDED
 
 | HTTP Method | Resource URI | Request Body | Returns        |
 |-------------|--------------|--------------|----------------|
-| Get         | 'api/income' |              | List<income>
+| Get         | 'api/income' |              | List&lt;Income&gt;|

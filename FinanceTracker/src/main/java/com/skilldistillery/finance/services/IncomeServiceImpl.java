@@ -8,19 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.finance.entities.Income;
-import com.skilldistillery.finance.repositories.FinanceRepository;
+import com.skilldistillery.finance.repositories.IncomeRepository;
 
 @Service
 @Transactional
-public class IncomeServiceImpl implements FinanceService {
+public class IncomeServiceImpl implements IncomeService {
 
 	@Autowired
-	private FinanceRepository repo;
+	private IncomeRepository repo;
 	
 	@Override
 	public List<Income> allIncome() {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.findAll();
 	}
 
 	@Override

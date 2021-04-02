@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.skilldistillery.finance.entities.Income;
 
-public interface FinanceRepository extends JpaRepository<Income, Integer> {
+public interface IncomeRepository extends JpaRepository<Income, Integer> {
 
 }

@@ -41,16 +41,16 @@ DROP TABLE IF EXISTS `income` ;
 
 CREATE TABLE IF NOT EXISTS `income` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `manager_id` INT NOT NULL,
+  `manager_id_inc` INT NOT NULL,
   `description` VARCHAR(100) NOT NULL,
   `total` INT NOT NULL,
   `is_passive` TINYINT NULL,
   `date_created` VARCHAR(45) NULL,
   `is_active` TINYINT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
-  INDEX `fk_income_manager_idx` (`manager_id` ASC),
+  INDEX `fk_income_manager_idx` (`manager_id_inc` ASC),
   CONSTRAINT `fk_income_manager`
-    FOREIGN KEY (`manager_id`)
+    FOREIGN KEY (`manager_id_inc`)
     REFERENCES `manager` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -80,7 +80,7 @@ DROP TABLE IF EXISTS `expense` ;
 
 CREATE TABLE IF NOT EXISTS `expense` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `manager_id` INT NOT NULL,
+  `manager_id_exp` INT NOT NULL,
   `type` VARCHAR(45) NULL,
   `company` VARCHAR(20) NULL,
   `amount` INT NULL,
@@ -90,9 +90,9 @@ CREATE TABLE IF NOT EXISTS `expense` (
   `date_created` VARCHAR(45) NULL,
   `is_active` TINYINT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
-  INDEX `fk_expense_manager1_idx` (`manager_id` ASC),
+  INDEX `fk_expense_manager1_idx` (`manager_id_exp` ASC),
   CONSTRAINT `fk_expense_manager1`
-    FOREIGN KEY (`manager_id`)
+    FOREIGN KEY (`manager_id_exp`)
     REFERENCES `manager` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -140,10 +140,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `financedb`;
-INSERT INTO `income` (`id`, `manager_id`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (1, 1, 'Google Income', 10000, 0, '04-02-2021', 1);
-INSERT INTO `income` (`id`, `manager_id`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (2, 1, 'VA Edu', 200, 1, '01-09-2021', 1);
-INSERT INTO `income` (`id`, `manager_id`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (3, 2, 'Gov Retirement', 20000, 1, '01-01-2020', 1);
-INSERT INTO `income` (`id`, `manager_id`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (4, 2, 'Secret Account intrest ', 50000, 1, '10-01-2020', 1);
+INSERT INTO `income` (`id`, `manager_id_inc`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (1, 1, 'Google Income', 10000, 0, '04-02-2021', 1);
+INSERT INTO `income` (`id`, `manager_id_inc`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (2, 1, 'VA Edu', 200, 1, '01-09-2021', 1);
+INSERT INTO `income` (`id`, `manager_id_inc`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (3, 2, 'Gov Retirement', 20000, 1, '01-01-2020', 1);
+INSERT INTO `income` (`id`, `manager_id_inc`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (4, 2, 'Secret Account intrest ', 50000, 1, '10-01-2020', 1);
 
 COMMIT;
 
@@ -153,9 +153,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `financedb`;
-INSERT INTO `expense` (`id`, `manager_id`, `type`, `company`, `amount`, `due_date`, `is_reacurring`, `note`, `date_created`, `is_active`) VALUES (1, 1, 'Credit Card', 'U.S. Bank', 100, '04-07-2021', 1, 'Try to pay off this year', '01-01-2020', 1);
-INSERT INTO `expense` (`id`, `manager_id`, `type`, `company`, `amount`, `due_date`, `is_reacurring`, `note`, `date_created`, `is_active`) VALUES (2, 2, 'Testing cost', 'WWF ', 9000, '04-01-2021', 0, 'World Wildlife Fund', '03-01-2021', 1);
-INSERT INTO `expense` (`id`, `manager_id`, `type`, `company`, `amount`, `due_date`, `is_reacurring`, `note`, `date_created`, `is_active`) VALUES (3, 1, 'Medical', 'NW Medical', 1500, '04-02-2021', 0, 'Overchared medical expense', '03-15-2021', 1);
+INSERT INTO `expense` (`id`, `manager_id_exp`, `type`, `company`, `amount`, `due_date`, `is_reacurring`, `note`, `date_created`, `is_active`) VALUES (1, 1, 'Credit Card', 'U.S. Bank', 100, '04-07-2021', 1, 'Try to pay off this year', '01-01-2020', 1);
+INSERT INTO `expense` (`id`, `manager_id_exp`, `type`, `company`, `amount`, `due_date`, `is_reacurring`, `note`, `date_created`, `is_active`) VALUES (2, 2, 'Testing cost', 'WWF ', 9000, '04-01-2021', 0, 'World Wildlife Fund', '03-01-2021', 1);
+INSERT INTO `expense` (`id`, `manager_id_exp`, `type`, `company`, `amount`, `due_date`, `is_reacurring`, `note`, `date_created`, `is_active`) VALUES (3, 1, 'Medical', 'NW Medical', 1500, '04-02-2021', 0, 'Overchared medical expense', '03-15-2021', 1);
 
 COMMIT;
 

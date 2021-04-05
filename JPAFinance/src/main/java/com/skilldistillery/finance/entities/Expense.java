@@ -5,11 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Expense {
 
-	//TODO Manager Id Mapping
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,12 +37,14 @@ public class Expense {
 	@Column(name="is_active")
 	private boolean isActive;
 	
+	@ManyToOne
+	@JoinColumn(name="manager_id_exp")
+	private Manager managerExp;
 	
 	public Expense() {}
 
-
 	public Expense(int id, String type, String company, Integer amount, String dueDate, boolean isReacurring,
-			String note, String dateCreated, boolean isActive) {
+			String note, String dateCreated, boolean isActive, Manager manager) {
 		super();
 		this.id = id;
 		this.type = type;
@@ -51,7 +55,11 @@ public class Expense {
 		this.note = note;
 		this.dateCreated = dateCreated;
 		this.isActive = isActive;
+		this.managerExp = manager;
 	}
+
+
+
 
 
 	public int getId() {
@@ -141,6 +149,16 @@ public class Expense {
 
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
+	}
+
+
+	public Manager getManagerExp() {
+		return managerExp;
+	}
+
+
+	public void setManagerExp(Manager managerExp) {
+		this.managerExp = managerExp;
 	}
 
 

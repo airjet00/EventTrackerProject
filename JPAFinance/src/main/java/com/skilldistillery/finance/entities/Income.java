@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Income {
@@ -26,9 +28,14 @@ public class Income {
 	@Column(name="is_active")
 	private boolean isActive = true;
 	
-	public Income() {}
+	@ManyToOne
+	@JoinColumn(name="manager_id_inc")
+	private Manager managerInc;
 	
-	public Income(int id, String description, int total, boolean isPassive, String dateCreated, boolean isActive) {
+	public Income() {}
+
+	public Income(int id, String description, int total, boolean isPassive, String dateCreated, boolean isActive,
+			Manager managerInc) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -36,7 +43,10 @@ public class Income {
 		this.isPassive = isPassive;
 		this.dateCreated = dateCreated;
 		this.isActive = isActive;
+		this.managerInc = managerInc;
 	}
+
+
 
 
 	public int getId() {
@@ -85,6 +95,14 @@ public class Income {
 
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
+	}
+
+	public Manager getManagerInc() {
+		return managerInc;
+	}
+
+	public void setManagerInc(Manager managerInc) {
+		this.managerInc = managerInc;
 	}
 
 	@Override

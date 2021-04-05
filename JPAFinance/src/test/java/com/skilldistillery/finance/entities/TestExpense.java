@@ -51,5 +51,15 @@ class TestExpense {
 		assertEquals(true, expense.isActive());
 	
 	}
+	
+	@Test
+	@DisplayName("Testing Income mapping to manager")
+	void test2() {
+
+		assertNotNull(expense);
+		assertEquals("Erik", expense.getManagerExp().getFirstName());
+		assertEquals("admin", expense.getManagerExp().getPassword());
+	
+	}
 
 }

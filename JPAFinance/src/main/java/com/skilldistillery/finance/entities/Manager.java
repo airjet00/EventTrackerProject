@@ -1,10 +1,15 @@
 package com.skilldistillery.finance.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Manager {
@@ -34,6 +39,13 @@ public class Manager {
 	@Column(name="total_available")
 	private Integer totalAvailable;
 	
+	@JsonIgnore
+	@OneToMany(mappedBy="managerExp")
+	private List<Expense> expenses;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="managerInc")
+	private List<Income> incomes;
 	
 	public Manager() {}
 
@@ -122,6 +134,22 @@ public class Manager {
 
 	public void setTotalAvailable(Integer totalAvailable) {
 		this.totalAvailable = totalAvailable;
+	}
+
+	public List<Expense> getExpenses() {
+		return expenses;
+	}
+
+	public void setExpenses(List<Expense> expenses) {
+		this.expenses = expenses;
+	}
+
+	public List<Income> getIncomes() {
+		return incomes;
+	}
+
+	public void setIncomes(List<Income> incomes) {
+		this.incomes = incomes;
 	}
 
 	@Override

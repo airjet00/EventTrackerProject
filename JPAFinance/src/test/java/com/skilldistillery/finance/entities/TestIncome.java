@@ -61,4 +61,14 @@ class TestIncome {
 		assertEquals(false, income.isPassive());
 	
 	}
+	
+	@Test
+	@DisplayName("Testing income to manager mapping")
+	void test2() {
+
+		assertNotNull(income);
+		assertEquals("Erik", income.getManagerInc().getFirstName());
+		assertEquals("admin", income.getManagerInc().getPassword());
+	
+	}
 }

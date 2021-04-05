@@ -52,4 +52,22 @@ class TestManager {
 	
 	}
 
+	@Test
+	@DisplayName("Testing manager to expenses mapping")
+	void test2() {
+
+		assertNotNull(manager);
+		assertEquals(1, manager.getExpenses().get(0).getId());
+		assertEquals(100, manager.getExpenses().get(0).getAmount());
+	
+	}
+	@Test
+	@DisplayName("Testing manager to income mapping")
+	void test3() {
+
+		assertNotNull(manager);
+		assertEquals("Google Income", manager.getIncomes().get(0).getDescription());
+		assertEquals(10000, manager.getIncomes().get(0).getTotal());
+	
+	}
 }

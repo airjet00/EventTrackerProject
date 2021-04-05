@@ -3,11 +3,11 @@
 - [x] Create JPA entity and tests
 - [x] Create REST API controllers, service, and Spring Data repository w/logic
 - [x] Test CRUD operation and controller logic in postman
-- [] Deploy project to EC2 instance.
-- [] LINK TO DEPLOYED APP, LOGIN INFO IF NEEDED
-- [] Buildout for nested CRUD
-- [] Build front end
-- [] create methods to calculate financials.
+- [ ] Deploy project to EC2 instance.
+- [ ] LINK TO DEPLOYED APP, LOGIN INFO IF NEEDED
+- [ ] Buildout for nested CRUD
+- [ ] Build front end
+- [ ] create methods to calculate financials.
 ## Overview
 Financial Tracker Event Tracker Project. An application to view
 current income, expense, and view current available. Have a basic

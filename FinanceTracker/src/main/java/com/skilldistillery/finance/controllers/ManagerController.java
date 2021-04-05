@@ -7,25 +7,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skilldistillery.finance.entities.Income;
-import com.skilldistillery.finance.services.IncomeService;
+import com.skilldistillery.finance.entities.Manager;
+import com.skilldistillery.finance.services.ManagerService;
 
 @RequestMapping("api")
 @RestController
-public class IncomeController {
+public class ManagerController {
 
 	@Autowired
-	private IncomeService svc; 
-
+	private ManagerService svc;
 	
-//  *** PING TEST ***	
-//	@GetMapping("ping")
-//	public String ping() {
-//		return "pong";
-//	}
-	
-	@GetMapping("income")
-	public List<Income>  listIncome(){
-		return svc.allIncome();
+	@GetMapping("manager")
+	public List<Manager> listManager(){
+		return svc.allManagers();
 	}
+	
+	
 }

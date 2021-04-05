@@ -7,5 +7,6 @@ import com.skilldistillery.finance.entities.Income;
 public interface IncomeService {
 
 	List<Income> allIncome();
+	
 	Income retrieveIncome(int incomeId);
 }

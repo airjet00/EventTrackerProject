@@ -9,7 +9,9 @@
     </provider>
     
     <!-- entities -->
+	<class>com.skilldistillery.finance.entities.Expense</class>
 	<class>com.skilldistillery.finance.entities.Income</class>
+	<class>com.skilldistillery.finance.entities.Manager</class>
 
 
 

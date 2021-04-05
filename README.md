@@ -17,8 +17,7 @@ profile page which would display total available, received income and expense wi
 
 Currently tested REST API using postman with information to create postman test below.
 
-![Image of Postman Testing]
-(https://github.com/airjet00/EventTrackerProject/blob/main/Postman%20testing.png)
+![Image of Postman Testing](https://github.com/airjet00/EventTrackerProject/blob/main/Postman%20testing.png)Format: ![Alt Text](url)
 
 ## REST API
 

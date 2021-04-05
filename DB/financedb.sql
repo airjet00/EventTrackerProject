@@ -43,10 +43,10 @@ CREATE TABLE IF NOT EXISTS `income` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `manager_id` INT NOT NULL,
   `description` VARCHAR(100) NOT NULL,
-  `total` VARCHAR(45) NOT NULL,
-  `is_passive` TINYINT NULL DEFAULT 0,
+  `total` INT NOT NULL,
+  `is_passive` TINYINT NULL,
   `date_created` VARCHAR(45) NULL,
-  `is_active` TINYINT NULL,
+  `is_active` TINYINT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   INDEX `fk_income_manager_idx` (`manager_id` ASC),
   CONSTRAINT `fk_income_manager`
@@ -140,10 +140,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `financedb`;
-INSERT INTO `income` (`id`, `manager_id`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (1, 1, 'Google Income', '10000', 0, '04-02-2021', 1);
-INSERT INTO `income` (`id`, `manager_id`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (2, 1, 'VA Edu', '200', 1, '01-09-2021', 1);
-INSERT INTO `income` (`id`, `manager_id`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (3, 2, 'Gov Retirement', '20000', 1, '01-01-2020', 1);
-INSERT INTO `income` (`id`, `manager_id`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (4, 2, 'Secret Account intrest ', '50000', 1, '10-01-2020', 1);
+INSERT INTO `income` (`id`, `manager_id`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (1, 1, 'Google Income', 10000, 0, '04-02-2021', 1);
+INSERT INTO `income` (`id`, `manager_id`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (2, 1, 'VA Edu', 200, 1, '01-09-2021', 1);
+INSERT INTO `income` (`id`, `manager_id`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (3, 2, 'Gov Retirement', 20000, 1, '01-01-2020', 1);
+INSERT INTO `income` (`id`, `manager_id`, `description`, `total`, `is_passive`, `date_created`, `is_active`) VALUES (4, 2, 'Secret Account intrest ', 50000, 1, '10-01-2020', 1);
 
 COMMIT;
 

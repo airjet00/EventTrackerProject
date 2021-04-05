@@ -1,5 +1,6 @@
 package com.skilldistillery.finance.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,15 +13,31 @@ public class Income {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String name;
+	private String description;
+	
+	private int total;
 
+	@Column(name="is_passive")
+	private boolean isPassive;
+	
+	@Column(name="date_created")
+	private String dateCreated;
+	
+	@Column(name="is_active")
+	private boolean isActive = true;
+	
 	public Income() {}
 	
-	public Income(int id, String name) {
+	public Income(int id, String description, int total, boolean isPassive, String dateCreated, boolean isActive) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.description = description;
+		this.total = total;
+		this.isPassive = isPassive;
+		this.dateCreated = dateCreated;
+		this.isActive = isActive;
 	}
+
 
 	public int getId() {
 		return id;
@@ -30,12 +47,44 @@ public class Income {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
+	public boolean isPassive() {
+		return isPassive;
+	}
+
+	public void setPassive(boolean isPassive) {
+		this.isPassive = isPassive;
+	}
+
+	public String getDateCreated() {
+		return dateCreated;
+	}
+
+	public void setDateCreated(String dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	@Override
@@ -65,9 +114,17 @@ public class Income {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Income [id=");
 		builder.append(id);
-		builder.append(", name=");
-		builder.append(name);
-		builder.append("]");
+		builder.append(", description=");
+		builder.append(description);
+		builder.append(", total=");
+		builder.append(total);
+		builder.append(", isPassive=");
+		builder.append(isPassive);
+		builder.append(", dateCreated=");
+		builder.append(dateCreated);
+		builder.append(", isActive=");
+		builder.append(isActive);
+		builder.append(".");
 		return builder.toString();
 	}
 }

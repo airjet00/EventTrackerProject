@@ -47,8 +47,18 @@ class TestIncome {
 	void test() {
 
 		assertNotNull(income);
-		assertEquals("Jobname", income.getName());
+		assertEquals("Google Income", income.getDescription());
 	
 	}
 
+	@Test
+	@DisplayName("Testing fields in income")
+	void test1() {
+
+		assertNotNull(income);
+		assertEquals("Google Income", income.getDescription());
+		assertEquals(10000, income.getTotal());
+		assertEquals(false, income.isPassive());
+	
+	}
 }

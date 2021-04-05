@@ -6,7 +6,13 @@ import com.skilldistillery.finance.entities.Expense;
 
 public interface ExpenseService {
 
-	List<Expense> allExpense();
+	public List<Expense> allExpense();
 	
-	Expense retrieveExpense(int expId);
+	public Expense retrieveExpense(int expId);
+
+	public Expense create(Expense expense);
+
+	public Expense update(int id, Expense expense);
+
+	public void delete(int id);
 }

@@ -6,7 +6,13 @@ import com.skilldistillery.finance.entities.Manager;
 
 public interface ManagerService {
 
-	List<Manager> allManagers();
+	public List<Manager> allManagers();
 	
-	Manager retrieveManager(int managerId);
+	public Manager retrieveManager(int managerId);
+
+	public Manager create(Manager manager);
+
+	public Manager update(int id, Manager manager);
+
+	public void delete(int id);
 }

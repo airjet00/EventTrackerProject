@@ -1,6 +1,7 @@
 package com.skilldistillery.finance.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -25,8 +26,47 @@ public class ManagerServiceImpl implements ManagerService {
 
 	@Override
 	public Manager retrieveManager(int managerId) {
-		// TODO Auto-generated method stub
+		
+		Optional<Manager> manager = repo.findById(managerId);
+		if(manager.isPresent()) {
+			return manager.get();
+		}
+		
 		return null;
+	}
+
+	@Override
+	public Manager create(Manager manager) {
+
+		repo.saveAndFlush(manager);
+		
+		return manager;
+	}
+
+	@Override
+	public Manager update(int id, Manager manager) {
+
+		Manager updateManager = retrieveManager(id);
+		if(updateManager != null) {
+			updateManager.setFirstName(manager.getFirstName());
+			updateManager.setLastName(manager.getLastName());
+			updateManager.setUsername(manager.getUsername());
+			updateManager.setPassword(manager.getPassword());
+			updateManager.setProfileUrl(manager.getProfileUrl());
+			updateManager.setGoal(manager.getGoal());
+			updateManager.setGoalAchieved(manager.isGoalAchieved());
+			updateManager.setTotalAvailable(manager.getTotalAvailable());
+			repo.saveAndFlush(updateManager);
+			return updateManager;
+		}
+		
+		return null;
+	}
+
+	@Override
+	public void delete(int id) {
+		
+		repo.deleteById(id);
 	}
 
 }

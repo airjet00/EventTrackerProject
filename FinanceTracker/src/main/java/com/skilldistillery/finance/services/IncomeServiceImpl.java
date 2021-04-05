@@ -1,6 +1,7 @@
 package com.skilldistillery.finance.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -24,8 +25,47 @@ public class IncomeServiceImpl implements IncomeService {
 
 	@Override
 	public Income retrieveIncome(int incomeId) {
-		// TODO Auto-generated method stub
+		
+		Optional<Income> income = repo.findById(incomeId);
+		if(income.isPresent()) {
+			return income.get();
+		}
+		return null;
+
+	}
+
+	@Override
+	public Income create(Income income) {
+		
+		repo.saveAndFlush(income);
+			
+		return income;
+	}
+
+	@Override
+	public Income update(int id, Income income) {
+
+		Income newIncome = retrieveIncome(id);
+		if(newIncome != null) {
+			newIncome.setDescription(income.getDescription());
+			newIncome.setTotal(income.getTotal());
+			newIncome.setPassive(income.isPassive());
+			newIncome.setDateCreated(income.getDateCreated());
+			newIncome.setActive(income.isActive());
+			repo.saveAndFlush(newIncome);
+			return newIncome;
+		}
+		
 		return null;
 	}
 
+	@Override
+	public void delete(int id) {
+
+		repo.deleteById(id);
+		
+	}
+
 }
+
+

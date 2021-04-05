@@ -6,7 +6,13 @@ import com.skilldistillery.finance.entities.Income;
 
 public interface IncomeService {
 
-	List<Income> allIncome();
+	public List<Income> allIncome();
 	
-	Income retrieveIncome(int incomeId);
+	public Income retrieveIncome(int incomeId);
+	
+	public Income create(Income income);
+
+	public Income update(int id, Income income);
+
+	public void delete(int id);
 }

@@ -1,21 +1,25 @@
 # EventTrackerProject
-
+- [x] Create Gradel Project and Spring Boot Project
+- [x] Create JPA entity and tests
+- [x] Create REST API controllers, service, and Spring Data repository w/logic
+- [x] Test CRUD operation and controller logic in postman
+- [] Deploy project to EC2 instance.
+- [] LINK TO DEPLOYED APP, LOGIN INFO IF NEEDED
+- [] Buildout for nested CRUD
+- [] Build front end
+- [] create methods to calculate financials.
 ## Overview
 Financial Tracker Event Tracker Project. An application to view
 current income, expense, and view current available. Have a basic
 profile page which would display total available, received income and expense with links to add income or expense.   
 
 ## How to Run
-TODO: LINK TO DEPLOYED APP, LOGIN INFO IF NEEDED
-TODO: Buildout for nested CRUD
-TODO: Build front end
-TODO: create methods to calculate financials.
 
 Currently tested REST API using postman with information to create postman test below.
 
 ## REST API
 
-| HTTP Method | Resource URI | Request Body | Returns        |
+| **HTTP Method** | **Resource URI** | **Request Body** | **Returns**        |
 |-------------|--------------|--------------|----------------|
 | Get         | 'api/income' |              | List&lt;Income&gt;|
 | Get         | 'api/income/id' |              | &lt;Income&gt;|

@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `debt` (
 ENGINE = InnoDB;
 
 SET SQL_MODE = '';
-DROP USER IF EXISTS financeuser@localhost;
+-- DROP USER IF EXISTS financeuser@localhost;
 SET SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 CREATE USER 'financeuser'@'localhost' IDENTIFIED BY 'financeuser';
 
@@ -158,4 +158,3 @@ INSERT INTO `expense` (`id`, `manager_id_exp`, `type`, `company`, `amount`, `due
 INSERT INTO `expense` (`id`, `manager_id_exp`, `type`, `company`, `amount`, `due_date`, `is_reacurring`, `note`, `date_created`, `is_active`) VALUES (3, 1, 'Medical', 'NW Medical', 1500, '04-02-2021', 0, 'Overchared medical expense', '03-15-2021', 1);
 
 COMMIT;
-

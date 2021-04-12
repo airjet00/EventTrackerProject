@@ -58,7 +58,8 @@ function displayFinance(finance) {
         var userPic = document.createElement("td");
         var goal = document.createElement("td");
         var goalAchieved = document.createElement("td");
-       
+        var incomeButton = document.createElement("td"); 
+
         // creates an image
         var userImg = document.createElement("img");
         userImg.src = mng.profileUrl;
@@ -73,15 +74,27 @@ function displayFinance(finance) {
         // TODO: if statement to set text to in progress or completed 
         goalAchieved.textContent = mng.goalAchieved;
 
+        // create button
+        var button = document.createElement("button")
+        button.textContent = "Show Income"; 
+        button.addEventListener("click", function (e) {
+            clicked(mng);
+        })
+        incomeButton.appendChild(button);
+        
         // appends the into the cell td
         currentRow.appendChild(userPic);
         currentRow.appendChild(nameCell);
         currentRow.appendChild(usernameCell);
         currentRow.appendChild(goal);
         currentRow.appendChild(goalAchieved);
+        currentRow.appendChild(incomeButton);
 
         // appends the row tr into tbody
         mytablebody.appendChild(currentRow);
+
+        // button.addEventListener('click', clicked);
+      
     }
 
     // appends tbody into table
@@ -90,7 +103,18 @@ function displayFinance(finance) {
     div.appendChild(mytable);
     // sets the border attribute of mytable to 2;
     mytable.setAttribute("border","2");
+    
 }
+
+
+function clicked(manager) {
+    
+    console.log(manager.username);
+    //TODO: add income info to table
+}
+
+
+
 
 //func loadExpenses
 // function loadExpenses() {
